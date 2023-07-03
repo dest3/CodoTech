@@ -43,26 +43,24 @@ create_database()
 
 class Producto:
     # Definimos el constructor e inicializamos los atributos de instancia
-    def __init__(self, codigo, descripcion, cantidad, precio,imagen):
+    def __init__(self, codigo, descripcion, cantidad, precio,):
         self.codigo = codigo           # Código
         self.descripcion = descripcion  # Descripción
         self.cantidad = cantidad       # Cantidad disponible (stock)
         self.precio = precio           # Precio
-        # self.imagen = imagen            
     
     
     # Este método permite modificar un producto.
-    def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_imagen):
+    def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio):
         self.descripcion = nueva_descripcion  # Modifica la descripción
         self.cantidad = nueva_cantidad        # Modifica la cantidad
         self.precio = nuevo_precio            # Modifica el precio
-        # self.imgen = nuevo_imagen
-
+    
 class Inventario:
     
     def __init__(self):
         self.conexion = get_db_connection()
-        self.cursor = self.conexion.cursor()
+        self.cursor = self.conexion.cursor()ue
     
     
     def agregar_producto(self, codigo, descripcion, cantidad, precio, imagen):
