@@ -43,20 +43,26 @@ create_database()
 
 class Producto:
     # Definimos el constructor e inicializamos los atributos de instancia
-    def __init__(self, codigo, descripcion, cantidad, precio,imagen):
+    def __init__(self, codigo, descripcion, cantidad, precio,modelo,formato,imagen,marca):
         self.codigo = codigo           # Código
         self.descripcion = descripcion  # Descripción
         self.cantidad = cantidad       # Cantidad disponible (stock)
         self.precio = precio           # Precio
-        # self.imagen = imagen            
+        self.modelo = modelo           # modelo
+        self.formato = formato          #formato
+        self.imagen = imagen            #imagen
+        self.marca = marca              #marca
     
     
     # Este método permite modificar un producto.
-    def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_imagen):
+    def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_modelo, nuevo_formato, nueva_imagen, nueva_marca):
         self.descripcion = nueva_descripcion  # Modifica la descripción
         self.cantidad = nueva_cantidad        # Modifica la cantidad
         self.precio = nuevo_precio            # Modifica el precio
-        # self.imgen = nuevo_imagen
+        self.modelo = nuevo_modelo
+        self.formato = nuevo_formato
+        self.imagen =nueva_imagen
+        self.marca = nueva_marca
 
 class Inventario:
     
@@ -65,12 +71,12 @@ class Inventario:
         self.cursor = self.conexion.cursor()
     
     
-    def agregar_producto(self, codigo, descripcion, cantidad, precio, imagen):
+    def agregar_producto(self, codigo, descripcion, cantidad, precio, modelo, formato, imagen, marca):
         producto_existente = self.consultar_producto(codigo)
         if producto_existente:
             return jsonify({'message': 'Ya existe un producto con ese código.'}), 400
-        nuevo_producto = Producto(codigo, descripcion, cantidad, precio)
-        sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio}, {imagen});'
+        nuevo_producto = Producto(self, codigo, descripcion, cantidad, precio,modelo,formato,imagen,marca)
+        sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio}, {modelo}, {formato}, {imagen}, {marca});'
         self.cursor.execute(sql)
         self.conexion.commit()
         return jsonify({'message': 'Producto agregado correctamente.'}), 200
@@ -82,17 +88,17 @@ class Inventario:
         self.cursor.execute(sql)
         row = self.cursor.fetchone()
         if row:
-            codigo, descripcion, cantidad, precio = row
-            return Producto(codigo, descripcion, cantidad, precio)
+            codigo, descripcion, cantidad, precio, modelo, formato, imagen, marca = row
+            return Producto(codigo, descripcion, cantidad, precio,modelo,formato,imagen,marca)
         return None
 
 
     
-    def modificar_producto(self, codigo, nueva_descripcion, nueva_cantidad, nuevo_precio):
+    def modificar_producto(self, codigo, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_modelo, nuevo_formato, nueva_imagen, nueva_marca):
         producto = self.consultar_producto(codigo)
         if producto:
             producto.modificar(nueva_descripcion, nueva_cantidad, nuevo_precio)
-            sql = f'UPDATE productos SET descripcion = "{nueva_descripcion}", cantidad = {nueva_cantidad}, precio = {nuevo_precio} WHERE codigo = {codigo};' 
+            sql = f'UPDATE productos SET descripcion = "{nueva_descripcion}", cantidad = {nueva_cantidad},modelo ={nuevo_modelo},formato= {nuevo_formato},imagen ={nueva_imagen}, marca= {nueva_marca}, precio = {nuevo_precio} WHERE codigo = {codigo};' 
             self.cursor.execute(sql)
             self.conexion.commit()
             return jsonify({'message': 'Producto modificado correctamente.'}), 200
@@ -117,8 +123,8 @@ class Inventario:
         rows = self.cursor.fetchall()
         productos = []
         for row in rows:
-            codigo, descripcion, cantidad, precio = row
-            producto = {'codigo': codigo, 'descripcion': descripcion, 'cantidad': cantidad, 'precio': precio}
+            codigo, descripcion, cantidad, precio, modelo, formato, imagen, marca = row
+            producto = {'codigo': codigo, 'descripcion': descripcion, 'cantidad': cantidad, 'precio': precio, 'modelo': modelo, 'formato': formato, 'imagen':imagen, 'marca':marca}
             productos.append(producto)
         return jsonify(productos), 200
 
@@ -147,7 +153,7 @@ class Carrito:
                 self.conexion.commit()
                 return jsonify({'message': 'Producto agregado al carrito correctamente.'}), 200
 
-        nuevo_item = Producto(codigo, producto.descripcion, cantidad, producto.precio)
+        nuevo_item = Producto(codigo, producto.descripcion, cantidad, producto.precio, producto.imagen, producto.marca, producto.fromato,producto.formato)
         self.items.append(nuevo_item)
         sql = f'UPDATE productos SET cantidad = cantidad - {cantidad}  WHERE codigo = {codigo};'
         self.cursor.execute(sql)
@@ -197,7 +203,11 @@ def obtener_producto(codigo):
             'codigo': producto.codigo,
             'descripcion': producto.descripcion,
             'cantidad': producto.cantidad,
-            'precio': producto.precio
+            'precio': producto.precio,
+            'modelo': producto.modelo,
+            'formato': producto.formato,
+            'imagen' : producto.imagen,
+            'marca': producto.marca
         }), 200
     return jsonify({'message': 'Producto no encontrado.'}), 404
 
@@ -218,7 +228,12 @@ def agregar_producto():
     descripcion = request.json.get('descripcion')
     cantidad = request.json.get('cantidad')
     precio = request.json.get('precio')
-    return inventario.agregar_producto(codigo, descripcion, cantidad, precio)
+
+    modelo = request.json.get('modelo')
+    formato = request.json.get('formato')
+    imagen = request.json.get('imagen')
+    marca = request.json.get('marca')
+    return inventario.agregar_producto(codigo, descripcion, cantidad, precio, modelo, formato, imagen, marca)
 
 # Ruta para modificar un producto del inventario
 @app.route('/productos/<int:codigo>', methods=['PUT'])
@@ -227,7 +242,12 @@ def modificar_producto(codigo):
     nueva_descripcion = request.json.get('descripcion')
     nueva_cantidad = request.json.get('cantidad')
     nuevo_precio = request.json.get('precio')
-    return inventario.modificar_producto(codigo, nueva_descripcion, nueva_cantidad, nuevo_precio)
+
+    nuevo_modelo = request.json.get('modelo')
+    nuevo_formato = request.json.get('formato')
+    nueva_imagen = request.json.get('imagen')
+    nueva_marca = request.json.get('marca')
+    return inventario.modificar_producto(codigo, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_modelo, nuevo_formato, nueva_imagen, nueva_marca)
 
 
 # Ruta para eliminar un producto del inventario
