@@ -25,6 +25,18 @@
         <label for="precio">Precio:</label>
         <input type="number" step="0.01" id="precio" name="precio" required><br>
 
+        <label for="cantidad">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required><br>
+
+        <label for="cantidad">Formato:</label>
+        <input type="text" id="formato" name="formato" required><br>
+
+        <label for="cantidad">Iamgen:</label>
+        <input type="url" id="imagen" name="imagen" required><br>
+
+        <label for="cantidad">Marca:</label>
+        <input type="text" id="marca" name="marca" required><br>
+
         <button type="submit">Agregar Producto</button>
         <a href="index.html">Menu principal</a>
     </form>
@@ -40,12 +52,21 @@
             var cantidad = document.getElementById('cantidad').value
             var precio = document.getElementById('precio').value
 
+            var modelo = document.getElementById('modelo').value
+            var formato = document.getElementById('formato').value
+            var imagen = document.getElementById('imagen').value
+            var marca = document.getElementById('marca').value
+
             // Creamos un objeto con los datos del producto
             var producto = {
                 codigo: codigo,
                 descripcion: descripcion,
                 cantidad: cantidad,
-                precio: precio
+                precio: precio,
+                modelo: modelo,
+                formato:formato,
+                imagen:imagen,
+                marca:marca
             }
             console.log(producto)
             // Realizamos la solicitud POST al servidor
@@ -69,6 +90,10 @@
                     document.getElementById('descripcion').value = ""
                     document.getElementById('cantidad').value = ""
                     document.getElementById('precio').value = ""
+                    document.getElementById('modelo').value = ""
+                    document.getElementById('formato').value = ""
+                    document.getElementById('imagen').value = ""
+                    document.getElementById('marca').value = ""
                 })
                 .catch(function (error) {
                     console.log('Error:', error)
