@@ -43,18 +43,20 @@ create_database()
 
 class Producto:
     # Definimos el constructor e inicializamos los atributos de instancia
-    def __init__(self, codigo, descripcion, cantidad, precio):
+    def __init__(self, codigo, descripcion, cantidad, precio,imagen):
         self.codigo = codigo           # Código
         self.descripcion = descripcion  # Descripción
         self.cantidad = cantidad       # Cantidad disponible (stock)
         self.precio = precio           # Precio
-
+        # self.imagen = imagen            
+    
+    
     # Este método permite modificar un producto.
-    def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio):
+    def modificar(self, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_imagen):
         self.descripcion = nueva_descripcion  # Modifica la descripción
         self.cantidad = nueva_cantidad        # Modifica la cantidad
         self.precio = nuevo_precio            # Modifica el precio
-
+        # self.imgen = nuevo_imagen
 
 class Inventario:
     
@@ -63,12 +65,12 @@ class Inventario:
         self.cursor = self.conexion.cursor()
     
     
-    def agregar_producto(self, codigo, descripcion, cantidad, precio):
+    def agregar_producto(self, codigo, descripcion, cantidad, precio, imagen):
         producto_existente = self.consultar_producto(codigo)
         if producto_existente:
             return jsonify({'message': 'Ya existe un producto con ese código.'}), 400
         nuevo_producto = Producto(codigo, descripcion, cantidad, precio)
-        sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio});'
+        sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio}, {imagen});'
         self.cursor.execute(sql)
         self.conexion.commit()
         return jsonify({'message': 'Producto agregado correctamente.'}), 200
@@ -177,7 +179,7 @@ class Carrito:
         return jsonify(productos_carrito), 200
 
 
-app = Flask(__name__)
+
 
 app = Flask(__name__)
 CORS(app)
