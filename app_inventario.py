@@ -60,14 +60,13 @@ class Inventario:
     
     def __init__(self):
         self.conexion = get_db_connection()
-        self.cursor = self.conexion.cursor()ue
+        self.cursor = self.conexion.cursor()
     
     
     def agregar_producto(self, codigo, descripcion, cantidad, precio, imagen):
         producto_existente = self.consultar_producto(codigo)
         if producto_existente:
             return jsonify({'message': 'Ya existe un producto con ese código.'}), 400
-        nuevo_producto = Producto(codigo, descripcion, cantidad, precio)
         sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio}, {imagen});'
         self.cursor.execute(sql)
         self.conexion.commit()
