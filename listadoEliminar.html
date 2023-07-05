@@ -51,7 +51,7 @@
             },
             methods: {
                 obtenerProductos() {
-                    const URL = "https://dest3.pythonanywhere.com/"
+                    const URL = "https://CC3.pythonanywhere.com/"
 
 
                     fetch(URL + 'productos')
@@ -71,7 +71,7 @@
                         })
                 },
                 eliminarProducto(codigo) {
-                    const URL = "https://dest3.pythonanywhere.com/"
+                    const URL = "https://CC3.pythonanywhere.com/"
 
 
                     fetch(URL + `productos/${codigo}`, { method: 'DELETE' })
