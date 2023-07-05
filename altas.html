@@ -60,6 +60,7 @@
                     if (response.ok) {
                         return response.json() // Parseamos la respuesta JSON
                     } else {
+                        console.log(response)
                         throw new Error('Error al agregar el producto.')
                     }
                 })
