@@ -72,11 +72,11 @@ class Inventario:
         self.cursor = self.conexion.cursor()
     
     
-    def agregar_producto(self, codigo, descripcion, cantidad, precio, imagen):
+    def agregar_producto(self, codigo, descripcion, cantidad, precio,):
         producto_existente = self.consultar_producto(codigo)
         if producto_existente:
             return jsonify({'message': 'Ya existe un producto con ese código.'}), 400
-        sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio}, {imagen});'
+        sql = f'INSERT INTO productos VALUES ({codigo}, "{descripcion}", {cantidad}, {precio},);'
         self.cursor.execute(sql)
         self.conexion.commit()
         return jsonify({"message": "Producto agregado correctamente."}), 200
@@ -86,8 +86,8 @@ class Inventario:
         self.cursor.execute(sql)
         row = self.cursor.fetchone()
         if row:
-            codigo, descripcion, cantidad, precio, imagen = row
-            return Producto(codigo, descripcion, cantidad, precio, imagen)
+            codigo, descripcion, cantidad, precio, = row
+            return Producto(codigo, descripcion, cantidad, precio,)
         return None
 
     def modificar_producto(
@@ -115,7 +115,7 @@ class Inventario:
         rows = self.cursor.fetchall()
         productos = []
         for row in rows:
-            codigo, descripcion, cantidad, precio = row
+            codigo, descripcion, cantidad, precio, = row
             producto = {
                 "codigo": codigo,
                 "descripcion": descripcion,
@@ -240,8 +240,7 @@ def agregar_producto():
     descripcion = request.json.get("descripcion")
     cantidad = request.json.get("cantidad")
     precio = request.json.get("precio")
-    imagen = request.json.get("imagen")
-    return inventario.agregar_producto(codigo, descripcion, cantidad, precio, imagen)
+    return inventario.agregar_producto(codigo, descripcion, cantidad, precio,)
 
 
 # Ruta para modificar un producto del inventario
@@ -252,7 +251,7 @@ def modificar_producto(codigo):
     nueva_cantidad = request.json.get("cantidad")
     nuevo_precio = request.json.get("precio")
     return inventario.modificar_producto(
-        codigo, nueva_descripcion, nueva_cantidad, nuevo_precio
+        codigo, nueva_descripcion, nueva_cantidad, nuevo_precio,
     )
 
 
