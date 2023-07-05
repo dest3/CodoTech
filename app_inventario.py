@@ -86,8 +86,8 @@ class Inventario:
         self.cursor.execute(sql)
         row = self.cursor.fetchone()
         if row:
-            codigo, descripcion, cantidad, precio = row
-            return Producto(codigo, descripcion, cantidad, precio)
+            codigo, descripcion, cantidad, precio, imagen = row
+            return Producto(codigo, descripcion, cantidad, precio, imagen)
         return None
 
     def modificar_producto(
