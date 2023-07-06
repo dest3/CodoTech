@@ -23,7 +23,11 @@ def create_table():
             codigo INTEGER PRIMARY KEY,
             descripcion TEXT NOT NULL,
             cantidad INTEGER NOT NULL,
-            precio REAL NOT NULL
+            precio REAL NOT NULL,
+            modelo TEXT NOT NULL,
+            formato TEXT NOT NULL,
+            imagen TEXT NOT NULL,
+            marca TEXT NOT NULL
         ) ''')
     conn.commit()
     cursor.close()
@@ -98,7 +102,7 @@ class Inventario:
         producto = self.consultar_producto(codigo)
         if producto:
             producto.modificar(nueva_descripcion, nueva_cantidad, nuevo_precio)
-            sql = f'UPDATE productos SET descripcion = "{nueva_descripcion}", cantidad = {nueva_cantidad},modelo ={nuevo_modelo},formato= {nuevo_formato},imagen ={nueva_imagen}, marca= {nueva_marca}, precio = {nuevo_precio} WHERE codigo = {codigo};' 
+            sql = f'UPDATE productos SET descripcion = "{nueva_descripcion}", cantidad = {nueva_cantidad}, precio = {nuevo_precio},modelo ={nuevo_modelo},formato= {nuevo_formato},imagen ={nueva_imagen}, marca= {nueva_marca} WHERE codigo = {codigo};' 
             self.cursor.execute(sql)
             self.conexion.commit()
             return jsonify({'message': 'Producto modificado correctamente.'}), 200
