@@ -20,8 +20,10 @@
                 <th>Código</th>
                 <th>Descripción</th>
                 <th>Cantidad</th>
+                <th>modelo</th>
+                <th>formato</th>
+                <th>marca</th>
                 <th align="right">Precio</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,11 @@
                 <td>{{ producto.codigo }}</td>
                 <td>{{ producto.descripcion }}</td>
                 <td align="right">{{ producto.cantidad }}</td>
+                <td>{{ producto.modelo}}</td>
+                <td>{{ producto.formato}}</td>
+                <td>{{ producto.imagen}}</td>
+                <td>{{ producto.marca}}</td>
+
                 <td align="right">{{ producto.precio }}</td>
                 <td><button @click="eliminarProducto(producto.codigo)">Eliminar</button></td>
             </tr>
@@ -71,7 +78,7 @@
                         })
                 },
                 eliminarProducto(codigo) {
-                    const URL = "https://dest3.pythonanywhere.com/"
+                    const URL = "https://xxxxxx.pythonanywhere.com/"
 
 
                     fetch(URL + `productos/${codigo}`, { method: 'DELETE' })
@@ -98,3 +105,4 @@
 
 
 </html>
+

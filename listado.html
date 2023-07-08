@@ -20,6 +20,9 @@
                 <th>Código</th>
                 <th>Descripción</th>
                 <th>Cantidad</th>
+                <th>modelo</th>
+                <th>formato</th>
+                <th>marca</th>
                 <th align="right">Precio</th>
             </tr>
         </thead>
@@ -57,7 +60,10 @@
                     fila.innerHTML = '<td>' + producto.codigo + '</td>' +
                         '<td>' + producto.descripcion + '</td>' +
                         '<td align="right">' + producto.cantidad + '</td>' +
-                        '<td align="right">&nbsp; &nbsp;&nbsp; &nbsp;' + producto.precio + '</td>'
+                        '<td align="right">&nbsp; &nbsp;&nbsp; &nbsp;' + producto.modelo + '</td>'
+                        '<td align="right">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + producto.formato + '</td>'
+                        '<td align="right">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + producto.marca + '</td>'
+                        '<td align="right">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + producto.precio + '</td>'
                     tablaProductos.appendChild(fila)
                 })
             })
