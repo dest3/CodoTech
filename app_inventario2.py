@@ -1,5 +1,6 @@
 import sqlite3
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 # Configurar la conexión a la base de datos SQLite
 DATABASE = 'inventario.db'
@@ -191,8 +192,8 @@ class Carrito:
             productos_carrito.append(producto)
         return jsonify(productos_carrito), 200
 
-
 app = Flask(__name__)
+CORS(app)
 
 carrito = Carrito()         # Instanciamos un carrito
 inventario = Inventario()   # Instanciamos un inventario
