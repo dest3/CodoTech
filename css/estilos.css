@@ -1,12 +1,26 @@
 /* Estilos para todo el proyecto */
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Exo', sans-serif;
+}
+
+* {
+    border: 1px solid red;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #FBFBFE;
 }
 
 
 .contenedor-centrado {
-    display:flex;
+    display: flex;
     width: 100%;
     justify-content: center;
 }
@@ -21,7 +35,12 @@ p {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-align: center;
     color: #007bff;
 }
@@ -81,7 +100,7 @@ input[type="submit"]:hover {
 
 button {
     padding: 8px;
-    margin:4px;
+    margin: 4px;
     background-color: #007bff;
     color: #ffffff;
     border: none;
@@ -95,19 +114,45 @@ button:hover {
 }
 
 
-a {
-    padding: 8px;
-    margin:4px;
-    background-color: #fdab13;
+nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background-color: #111111;
+    width: 88px;
+
+}
+
+.logo {
+    display: block;
+    margin: auto;
+}
+
+.nav-style {
+    position: relative;
     color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 85%;
+    display: table;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-a:hover {
-    background-color: #cd7b00;
+.material-symbols-outlined:hover{
+    background-color: #323136;
+    padding: 10px;
+    border-radius: 8px;
+    
 }
+
+.material-symbols-outlined {
+    position: relative;
+    padding: 10px;
+} 
+
+.nav-ul{
+    margin-top: 32px;
+}
+
