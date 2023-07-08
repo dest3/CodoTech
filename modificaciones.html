@@ -123,7 +123,11 @@
                     mostrarDatosProducto: false,
                     descripcion: '',
                     cantidad: '',
-                    precio: ''
+                    modelo: '',
+                    formato: '',
+                    imagen: '',
+                    marca: '',
+                    precio: '',
                 }
             },
             methods: {
@@ -140,18 +144,27 @@
                             this.descripcion = data.descripcion
                             this.cantidad = data.cantidad
                             this.precio = data.precio
+                            this.modelo = data.modelo
+                            this.formato = data.formato
+                            this.imagen = data.imagen
+                            this.marca = data.marca
                             this.mostrarDatosProducto = true
                         })
                         .catch(error => {
                             alert('Error al obtener los datos del producto.')
                         })
                 },
+
                 guardarCambios() {
                     const producto = {
                         codigo: this.codigo,
                         descripcion: this.descripcion,
                         cantidad: this.cantidad,
-                        precio: this.precio
+                        precio: this.precio,
+                        modelo: this.modelo,
+                        formato: this.formato,
+                        imagen: this.imagen,
+                        marca: this.marca,
                     }
 
 

@@ -59,7 +59,7 @@ class Producto:
         self.precio = nuevo_precio            # Modifica el precio
         self.modelo = nuevo_modelo
         self.formato = nuevo_formato
-        self.imagen =nueva_imagen
+        self.imagen = nueva_imagen
         self.marca = nueva_marca
 
 class Inventario:
@@ -249,7 +249,7 @@ def modificar_producto(codigo):
     nuevo_precio = request.json.get('precio')
     nuevo_modelo= request.json.get('modelo')
     nuevo_formato = request.json.get('formato')
-    nueva_imagen = request.json.get('formato')
+    nueva_imagen = request.json.get('imagen')
     nueva_marca = request.json.get('marca')
     return inventario.modificar_producto( codigo, nueva_descripcion, nueva_cantidad, nuevo_precio, nuevo_modelo, nuevo_formato, nueva_imagen, nueva_marca)
 
