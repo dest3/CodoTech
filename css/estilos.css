@@ -197,3 +197,7 @@ nav {
 .nav-ul {
     margin-top: 32px;
 }
+
+.producto-imagen {
+    width: 200px;
+}

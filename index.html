@@ -26,7 +26,7 @@
             <br>
             <br>
             <li>
-                <a href="./listado.html" class="nav-style">
+                <a href="./index.html" class="nav-style">
                     <span class="material-symbols-outlined">
                         list_alt
                     </span></a>
@@ -111,13 +111,13 @@
                     var fila = document.createElement('tr')
                     fila.innerHTML = 
                         '<td>' + producto.codigo + '</td>' +
-                        '<td>' + producto.imagen + '</td>' +
+                        '<td ><img src="' + producto.imagen + '" alt="Imagen de producto" class="producto-imagen"></td>' +
                         '<td align="left">'+ producto.marca + '</td>' +
-                        '<td aling="left">'+ producto.descripcion + '</td>'
-                        '<td align="left">'+ producto.modelo + '</td>'
-                        '<td align="left">'+ producto.formato + '</td>'
-                        '<td align="right">'+ producto.cantidad + '</td>'
-                        '<td align="right">'+ producto.precio + '</td>'
+                        '<td aling="left">'+ producto.descripcion + '</td>' +
+                        '<td align="left">'+ producto.modelo + '</td>' +
+                        '<td align="left">'+ producto.formato + '</td>' +
+                        '<td align="right">'+ producto.cantidad + '</td>' +
+                        '<td align="right">'+ producto.precio + '</td>' 
                         tablaProductos.appendChild(fila)
                 })
             })
@@ -126,6 +126,6 @@
                 alert('Error al obtener los productos.')
             })
     </script>
-</body>
+</body> 
 
 </html>
