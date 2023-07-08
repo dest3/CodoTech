@@ -10,9 +10,9 @@
     font-family: 'Exo', sans-serif;
 }
 
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 body {
     background-color: #FBFBFE;
@@ -35,14 +35,17 @@ p {
 }
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-align: center;
-    color: #007bff;
+h1 {
+    text-align: left;
+    margin-left: 120px;
+    margin-top: 32px;
+    font-family:'Exo' 500;
+}
+
+h3 {
+    text-align: left;
+    margin-left: 120px;
+    font-family:'Exo' 300;
 }
 
 
@@ -57,14 +60,53 @@ form {
 
 
 table {
-    max-width: 90%;
-    margin: 0 auto;
+    margin-left: 120px;
+    margin-right: 40px;
     padding: 20px;
     background-color: white;
-    border: 1px solid lightslategray;
-    border-radius: 5px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
 }
 
+.th-codigo{
+    width: 160px;
+    text-align: left;
+}
+
+.th-imagen{
+    width: auto;
+    text-align: left;
+}
+
+.th-marca{
+    width: 160px;
+    text-align: left;
+}
+
+.th-descripcion{
+    width: 160px;
+    text-align: left;
+}
+
+.th-modelo{
+    width: 160px;
+    text-align: left;
+}
+
+.th-formato{
+    width: 160px;
+    text-align: left;
+}
+
+.th-cantidad{
+    width: 160px;
+    text-align: left;
+}
+
+.th-precio{
+    width: 160px;
+    text-align: left;
+}
 
 label {
     display: block;
@@ -140,19 +182,18 @@ nav {
     align-items: center;
 }
 
-.material-symbols-outlined:hover{
+.material-symbols-outlined:hover {
     background-color: #323136;
     padding: 10px;
     border-radius: 8px;
-    
+
 }
 
 .material-symbols-outlined {
     position: relative;
     padding: 10px;
-} 
-
-.nav-ul{
-    margin-top: 32px;
 }
 
+.nav-ul {
+    margin-top: 32px;
+}
