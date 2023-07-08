@@ -403,8 +403,3 @@ def obtener_carrito():
 # # Mostrar el contenido del carrito y del inventario
 # mi_carrito.mostrar()
 # mi_inventario.listar_productos()
-
-
-# Finalmente, si estamos ejecutando este archivo, lanzamos app.
-if __name__ == '__main__':
-    app.run()

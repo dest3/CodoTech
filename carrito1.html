@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inventario</title>
   <script src="https://unpkg.com/vue@next"></script>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="/css/estilos.css">
 </head>
 
 
@@ -21,6 +21,10 @@
           <th>Código</th>
           <th>Descripción</th>
           <th>Cantidad</th>
+          <th>modelo</th>
+          <th>formato</th>
+          <th>imagen</th>
+          <th>marca</th>
           <th>Precio</th>
           <th>Carrito</th>
         </tr>
@@ -30,7 +34,11 @@
           <td>{{ producto.codigo }}</td>
           <td>{{ producto.descripcion }}</td>
           <td align="right">{{ producto.cantidad }}</td>
-          <td align="right">&nbsp; &nbsp; {{ producto.precio }}</td>
+          <td>{{producto.modelo}}</td>
+          <td>{{producto.formato}}</td>
+          <td>{{producto.imagen}}</td>
+          <td>{{producto.marca}}</td>
+          <td align="right">&nbsp; &nbsp; &nbsp; &nbsp; {{ producto.precio }}</td>
           <td>
             <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
             <button @click="restarDelCarrito(producto)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
@@ -78,7 +86,7 @@
 
   <script>
     //const URL = "http://127.0.0.1:5000/"
-    const URL = "https://dest3.pythonanywhere.com/"
+    const URL = "https://juanpablocodo.pythonanywhere.com/"
 
 
     const app = Vue.createApp({
