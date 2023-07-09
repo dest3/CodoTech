@@ -79,14 +79,14 @@
     <table>
         <thead>
             <tr>
-                <th class="th-codigo">Código</th>
-                <th class="th-imagen">Imagen</th>
-                <th class="th-marca">Marca</th>
-                <th class="th-descripcion">Descripción</th>
-                <th class="th-modelo">Modelo</th>
-                <th class="th-formato">Formato</th>
-                <th class="th-cantidad">Cantidad</th>
-                <th class="th-precio">Precio</th>
+                <th>Código</th>
+                <th>Imagen</th>
+                <th>Marca</th>
+                <th>Descripción</th>
+                <th>Modelo</th>
+                <th>Formato</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
             </tr>
         </thead>
         <tbody id="tablaProductos">
@@ -116,7 +116,7 @@
                 data.forEach(function (producto) {
                     var fila = document.createElement('tr')
                     fila.innerHTML =
-                        '<th>' + producto.codigo + '</th>' +
+                        '<th class="th-codigo">' + producto.codigo + ' </th>' +
                         '<td class="td-imagen"><img src="' + producto.imagen + '" alt="Imagen de producto" class="producto-imagen"></td>' +
                         '<td align="left">' + producto.marca + '</td>' +
                         '<td aling="left">' + producto.descripcion + '</td>' +

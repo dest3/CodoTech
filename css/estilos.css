@@ -29,15 +29,6 @@ body {
 }
 
 
-p {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #f9f9f9;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-
 h1 {
     text-align: left;
     font-family: 'Exo' 500;
@@ -74,7 +65,6 @@ td {
     border-bottom: 1px solid #ECECEC;
     padding-left: 24px;
     padding-right: 24px;
-    /* width: min-content; */
 }
 
 th {
@@ -84,11 +74,15 @@ th {
 }
 
 td.td-imagen {
-    width: 328px;
+    width: 308px;
+}
+
+.th-codigo {
+    width: 0%;
 }
 
 .producto-imagen {
-    width: 280px;
+    width: 260px;
     height: 140px;
     object-fit: cover;
 }
@@ -126,18 +120,18 @@ input[type="submit"]:hover {
 
 
 button {
-    padding: 8px;
-    margin: 4px;
-    background-color: #007bff;
+    padding: 10px;
+    background-color: #5853F2;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    width: 100%;
 }
 
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #4743DB;
 }
 
 
@@ -147,7 +141,7 @@ nav {
     bottom: 0;
     height: 100%;
     left: 0;
-    background-color: #111111;
+    background-color: #181922;
     width: 258px;
     position: fixed;
 }
