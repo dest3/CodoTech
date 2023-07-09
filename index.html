@@ -25,46 +25,57 @@
             </li>
             <br>
             <br>
-            <li>
-                <a href="./index.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        list_alt
-                    </span></a>
-            </li>
+            <br>
+            
+                <span class="nav-text-style">ADMINISTRACIÓN</span>
+                <li>
+                    <a href="./index.html" class="nav-style">
+                        <span class="material-symbols-outlined">
+                            list_alt
+                        </span>
+                        <span>Inventario</span></a>
+                </li>
 
-            <li>
-                <a href="./altas.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        list_alt_add
-                    </span></a>
-            </li>
+                <li>
+                    <a href="./altas.html" class="nav-style">
+                        <span class="material-symbols-outlined">
+                            list_alt_add
+                        </span>
+                        <span>Alta de productos</span></a>
+                </li>
 
-            <li>
-                <a href="./modificaciones.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        border_color
-                    </span></a>
-            </li>
+                <li>
+                    <a href="./modificaciones.html" class="nav-style">
+                        <span class="material-symbols-outlined">
+                            border_color
+                        </span>
+                        <span>Modificar inventario</span></a>
+                </li>
 
-            <li>
-                <a href="./listadoEliminar.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        delete
-                    </span></a>
-            </li>
-
+                <li>
+                    <a href="./listadoEliminar.html" class="nav-style">
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                        <span>Eliminar productos</span></a>
+                </li>
+            <br><br>
+            <span class="nav-text-style">TESTEO</span>
             <li>
                 <a href="./carrito1.html" class="nav-style">
                     <span class="material-symbols-outlined">
                         shopping_cart
-                    </span></a>
+                    </span>
+                    <span>Carrito</span></a>
             </li>
 
         </ul>
     </nav>
 
     <h1>Inventario</h1>
-    <h3>Teclados gamer</h3>
+    <h3>Stock</h3>
+    <br>
+    <br>
     <table>
         <thead>
             <tr>
@@ -81,11 +92,6 @@
         <tbody id="tablaProductos">
         </tbody>
     </table>
-
-
-    <div class="contenedor-centrado">
-        <a href="index.html">Menu principal</a>
-    </div>
 
 
     <script>
@@ -109,16 +115,16 @@
                 // Iteramos sobre los productos y agregamos filas a la tabla
                 data.forEach(function (producto) {
                     var fila = document.createElement('tr')
-                    fila.innerHTML = 
-                        '<td>' + producto.codigo + '</td>' +
-                        '<td ><img src="' + producto.imagen + '" alt="Imagen de producto" class="producto-imagen"></td>' +
-                        '<td align="left">'+ producto.marca + '</td>' +
-                        '<td aling="left">'+ producto.descripcion + '</td>' +
-                        '<td align="left">'+ producto.modelo + '</td>' +
-                        '<td align="left">'+ producto.formato + '</td>' +
-                        '<td align="right">'+ producto.cantidad + '</td>' +
-                        '<td align="right">'+ producto.precio + '</td>' 
-                        tablaProductos.appendChild(fila)
+                    fila.innerHTML =
+                        '<th>' + producto.codigo + '</th>' +
+                        '<td class="td-imagen"><img src="' + producto.imagen + '" alt="Imagen de producto" class="producto-imagen"></td>' +
+                        '<td align="left">' + producto.marca + '</td>' +
+                        '<td aling="left">' + producto.descripcion + '</td>' +
+                        '<td align="left">' + producto.modelo + '</td>' +
+                        '<td align="left">' + producto.formato + '</td>' +
+                        '<td align="left">' + producto.cantidad + '</td>' +
+                        '<td align="left">' + producto.precio + '</td>'
+                    tablaProductos.appendChild(fila)
                 })
             })
             .catch(function (error) {
@@ -126,6 +132,6 @@
                 alert('Error al obtener los productos.')
             })
     </script>
-</body> 
+</body>
 
 </html>

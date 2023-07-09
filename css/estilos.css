@@ -16,6 +16,9 @@
 
 body {
     background-color: #FBFBFE;
+    margin-left: 298px;
+    margin-top: 24px;
+    margin-right: 40px;
 }
 
 
@@ -37,15 +40,12 @@ p {
 
 h1 {
     text-align: left;
-    margin-left: 120px;
-    margin-top: 32px;
-    font-family:'Exo' 500;
+    font-family: 'Exo' 500;
 }
 
 h3 {
     text-align: left;
-    margin-left: 120px;
-    font-family:'Exo' 300;
+    font-family: 'Exo' 300;
 }
 
 
@@ -60,52 +60,37 @@ form {
 
 
 table {
-    margin-left: 120px;
-    margin-right: 40px;
-    padding: 20px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 16px;
+    border-radius: 8px;
     background-color: white;
     border: 1px solid lightgray;
-    border-radius: 8px;
 }
 
-.th-codigo{
-    width: 160px;
-    text-align: left;
+
+td {
+    border-bottom: 1px solid #ECECEC;
+    padding-left: 24px;
+    padding-right: 24px;
+    /* width: min-content; */
 }
 
-.th-imagen{
-    width: auto;
+th {
     text-align: left;
+    padding: 24px;
+    border-bottom: 1px solid #ECECEC;
 }
 
-.th-marca{
-    width: 160px;
-    text-align: left;
+td.td-imagen {
+    width: 328px;
 }
 
-.th-descripcion{
-    width: 160px;
-    text-align: left;
-}
-
-.th-modelo{
-    width: 160px;
-    text-align: left;
-}
-
-.th-formato{
-    width: 160px;
-    text-align: left;
-}
-
-.th-cantidad{
-    width: 160px;
-    text-align: left;
-}
-
-.th-precio{
-    width: 160px;
-    text-align: left;
+.producto-imagen {
+    width: 280px;
+    height: 140px;
+    object-fit: cover;
 }
 
 label {
@@ -163,41 +148,58 @@ nav {
     height: 100%;
     left: 0;
     background-color: #111111;
-    width: 88px;
-
+    width: 258px;
+    position: fixed;
 }
 
 .logo {
     display: block;
     margin: auto;
+    margin-left: 24px;
 }
 
-.nav-style {
-    position: relative;
+.div-nav {
+    margin-bottom: 48px;
+}
+
+.nav-style{
     color: #ffffff;
     display: table;
+    margin-left: 16px;
+    margin-right: 16px;
     padding: 8px;
-    display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.material-symbols-outlined:hover {
-    background-color: #323136;
-    padding: 10px;
-    border-radius: 8px;
+.nav-text-style {
+    color: #ffffff;
+    margin-left: 16px;
+}
 
+.nav-style:hover {
+    background-color: #323136;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 8px;
+    width: 224px;
 }
 
 .material-symbols-outlined {
-    position: relative;
-    padding: 10px;
+    margin-right: 16px;
+   
 }
+
 
 .nav-ul {
     margin-top: 32px;
 }
 
-.producto-imagen {
-    width: 200px;
+.nav-ul>li>a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
+
+/* * { border: 1px solid red ;} */
