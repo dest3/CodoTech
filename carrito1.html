@@ -9,9 +9,9 @@
   <script src="https://unpkg.com/vue@next"></script>
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
@@ -19,86 +19,88 @@
 <body>
   <nav>
     <ul class="nav-ul">
-        <li>
-            <img src="./img/Logo.svg" alt="Logo" class="logo">
-        </li>
-        <br>
-        <br>
-        <br>
-        
-            <span class="nav-text-style">ADMINISTRACIÓN</span>
-            <li>
-                <a href="./index.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        list_alt
-                    </span>
-                    <span>Inventario</span></a>
-            </li>
+      <li>
+        <img src="./img/Logo.svg" alt="Logo" class="logo">
+      </li>
+      <br>
+      <br>
+      <br>
 
-            <li>
-                <a href="./altas.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        list_alt_add
-                    </span>
-                    <span>Alta de productos</span></a>
-            </li>
+      <span class="nav-text-style">ADMINISTRACIÓN</span>
+      <li>
+        <a href="./index.html" class="nav-style">
+          <span class="material-symbols-outlined">
+            list_alt
+          </span>
+          <span>Inventario</span></a>
+      </li>
 
-            <li>
-                <a href="./modificaciones.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        border_color
-                    </span>
-                    <span>Modificar inventario</span></a>
-            </li>
+      <li>
+        <a href="./altas.html" class="nav-style">
+          <span class="material-symbols-outlined">
+            list_alt_add
+          </span>
+          <span>Alta de productos</span></a>
+      </li>
 
-            <li>
-                <a href="./listadoEliminar.html" class="nav-style">
-                    <span class="material-symbols-outlined">
-                        delete
-                    </span>
-                    <span>Eliminar productos</span></a>
-            </li>
-        <br><br>
-        <span class="nav-text-style">TESTEO</span>
-        <li>
-            <a href="./carrito1.html" class="nav-style">
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
-                <span>Carrito</span></a>
-        </li>
+      <li>
+        <a href="./modificaciones.html" class="nav-style">
+          <span class="material-symbols-outlined">
+            border_color
+          </span>
+          <span>Modificar inventario</span></a>
+      </li>
+
+      <li>
+        <a href="./listadoEliminar.html" class="nav-style">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+          <span>Eliminar productos</span></a>
+      </li>
+      <br><br>
+      <span class="nav-text-style">TESTEO</span>
+      <li>
+        <a href="./carrito1.html" class="nav-style">
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+          <span>Carrito</span></a>
+      </li>
 
     </ul>
-</nav>
+  </nav>
 
 
   <div id="app">
     <h1>Carrito de compras</h1>
-    <h3>Codo a Codo 2023</h3>
+    <h3>Herramienta de testeo</h3>
+    <br><br>
     <table>
       <thead>
         <tr>
           <th>Código</th>
+          <th>Imagen</th>
+          <th>Marca</th>
           <th>Descripción</th>
+          <th>Modelo</th>
+          <th>Formato</th>
           <th>Cantidad</th>
-          <th>modelo</th>
-          <th>formato</th>
-          <th>imagen</th>
-          <th>marca</th>
           <th>Precio</th>
-          <th>Carrito</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="producto in productos" :key="producto.codigo">
-          <td>{{ producto.codigo }}</td>
+          <th class="th-codigo">{{ producto.codigo }}</th>
+          <td class="td-imagen"><img :src="producto.imagen" alt="Imagen de producto" class="producto-imagen"></td>
+          <td>{{ producto.marca }}</td>
           <td>{{ producto.descripcion }}</td>
-          <td align="right">{{ producto.cantidad }}</td>
-          <td>{{producto.modelo}}</td>
-          <td>{{producto.formato}}</td>
-          <td>{{producto.imagen}}</td>
-          <td>{{producto.marca}}</td>
-          <td align="right">&nbsp; &nbsp; &nbsp; &nbsp; {{ producto.precio }}</td>
+          <td>{{ producto.modelo }}</td>
+          <td>{{ producto.formato }}</td>
+          <td>{{ producto.cantidad }}</td>
+          <!-- <td>{{ producto.precio }}</td> -->
+          <td>&nbsp; &nbsp; &nbsp; &nbsp; {{ producto.precio }}</td>
           <td>
             <button @click="agregarAlCarrito(producto)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
             <button @click="restarDelCarrito(producto)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
@@ -109,36 +111,44 @@
 
 
     <div v-if="mostrarCarrito">
-      <h3>Productos en el carrito:</h3>
+      <br><br>
+      <h2>Productos en el carrito:</h2>
+      <br>
       <table>
         <thead>
           <tr>
             <th>Código</th>
+            <th>Imagen</th>
+            <th>Marca</th>
             <th>Descripción</th>
+            <th>Modelo</th>
+            <th>Formato</th>
             <th>Cantidad</th>
             <th>Precio</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="item in carrito" :key="item.codigo">
+
             <td>{{ item.codigo }}</td>
+            <td class="td-imagen"><img :src="item.imagen" alt="Imagen de producto" class="producto-imagen"></td>
+            <td>{{ item.marca }}</td>
             <td>{{ item.descripcion }}</td>
-            <td align="right">{{ item.cantidad }}</td>
-            <td align="right">&nbsp; &nbsp; {{ item.precio }}</td>
+            <td>{{ item.modelo }}</td>
+            <td>{{ item.formato }}</td>
+            <td>{{ item.cantidad }}</td>
+            <!-- <td>{{ item.precio }}</td> -->
+            <td>&nbsp; &nbsp; {{ item.precio }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-
+    <br> <br>
     <div v-if="!mostrarCarrito" class="contenedor-centrado">
       <button @click="obtenerCarrito">Mostrar carrito</button>
     </div>
 
-
-    <div class="contenedor-centrado">
-      <a href="index.html">Menu principal</a>
-    </div>
 
 
   </div>
