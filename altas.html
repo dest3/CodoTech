@@ -23,39 +23,39 @@
             <br>
             <br>
             <br>
-            
-                <span class="nav-text-style">ADMINISTRACIÓN</span>
-                <li>
-                    <a href="./index.html" class="nav-style">
-                        <span class="material-symbols-outlined">
-                            list_alt
-                        </span>
-                        <span>Inventario</span></a>
-                </li>
 
-                <li>
-                    <a href="./altas.html" class="nav-style">
-                        <span class="material-symbols-outlined">
-                            list_alt_add
-                        </span>
-                        <span>Alta de productos</span></a>
-                </li>
+            <span class="nav-text-style">ADMINISTRACIÓN</span>
+            <li>
+                <a href="./index.html" class="nav-style">
+                    <span class="material-symbols-outlined">
+                        list_alt
+                    </span>
+                    <span>Inventario</span></a>
+            </li>
 
-                <li>
-                    <a href="./modificaciones.html" class="nav-style">
-                        <span class="material-symbols-outlined">
-                            border_color
-                        </span>
-                        <span>Modificar inventario</span></a>
-                </li>
+            <li>
+                <a href="./altas.html" class="nav-style">
+                    <span class="material-symbols-outlined">
+                        list_alt_add
+                    </span>
+                    <span>Alta de productos</span></a>
+            </li>
 
-                <li>
-                    <a href="./listadoEliminar.html" class="nav-style">
-                        <span class="material-symbols-outlined">
-                            delete
-                        </span>
-                        <span>Eliminar productos</span></a>
-                </li>
+            <li>
+                <a href="./modificaciones.html" class="nav-style">
+                    <span class="material-symbols-outlined">
+                        border_color
+                    </span>
+                    <span>Modificar inventario</span></a>
+            </li>
+
+            <li>
+                <a href="./listadoEliminar.html" class="nav-style">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                    <span>Eliminar productos</span></a>
+            </li>
             <br><br>
             <span class="nav-text-style">TESTEO</span>
             <li>
@@ -69,26 +69,13 @@
         </ul>
     </nav>
 
-    <h1>Agregar Productos al Inventario</h1>
-    <h3>Codo a Codo 2023</h3>
+    <h1>Alta de productos</h1>
+    <h3>Agregar productos al inventario</h3>
+    <br>
+    <br>
     <form id="formulario">
         <label for="codigo">Código:</label>
         <input type="text" id="codigo" name="codigo" required><br>
-
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" name="descripcion" required><br>
-
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" required><br>
-
-        <label for="precio">Precio:</label>
-        <input type="number" step="0.01" id="precio" name="precio" required><br>
-
-        <label for="modelo">Modelo</label>
-        <input type="text" id="modelo" name="modelo" required><br>
-
-        <label for="formato">Formato</label>
-        <input type="text" id="formato" name="formato" required><br>
 
         <label for="imagen">Imagen</label>
         <input type="text" id="imagen" name="imagen" required><br>
@@ -96,9 +83,24 @@
         <label for="marca">Marca</label>
         <input type="text" name="marca" id="marca" required><br>
 
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" required><br>
+
+        <label for="modelo">Modelo</label>
+        <input type="text" id="modelo" name="modelo" required><br>
+
+        <label for="formato">Formato</label>
+        <input type="text" id="formato" name="formato" required><br>  
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio" required><br>
+
 
         <button type="submit">Agregar Producto</button>
-        <a href="index.html">Menu principal</a>
+
     </form>
     <script>
         const URL = "https://dest3.pythonanywhere.com/"

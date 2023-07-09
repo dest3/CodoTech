@@ -32,21 +32,23 @@ body {
 h1 {
     text-align: left;
     font-family: 'Exo' 500;
+    font-size: 24px;
 }
 
 h3 {
     text-align: left;
     font-family: 'Exo' 300;
+    font-size: 16px;
 }
 
 
 form {
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 24px;
     background-color: white;
-    border: 1px solid lightslategray;
-    border-radius: 5px;
+    border: 1px solid #ECECEC;
+    border-radius: 8px;
 }
 
 
@@ -96,11 +98,12 @@ label {
 input[type="text"],
 input[type="number"],
 textarea {
-    width: 90%;
+    width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #cccccc;
+    margin-bottom: 16px;
+    border: 1px solid #ECECEC;
     border-radius: 5px;
+    background-color: #F9F9F9;
 }
 
 
@@ -127,13 +130,39 @@ button {
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
+    font-size: 14px;
+    font-family: 'Exo' 500;
 }
 
+
+.cancelar-button{
+    padding: 10px;
+    color: #5853F2;
+    border: 2px solid #5853F2;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Exo' 500;
+    display: flex;
+    justify-content: center;
+}
+
+.cancelar-button:hover{
+    border: 2px solid #4743DB;
+    display: flex;
+    justify-content: center;
+}
 
 button:hover {
     background-color: #4743DB;
 }
 
+.div-buttons {
+    display: flex ;
+    flex-direction: row;
+    gap: 24px;
+}
 
 nav {
     position: absolute;
